@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Packaging Consultant</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <section class="hero">
-    <h1>Premium Packaging Design</h1>
-    <p>Custom concepts for modern brands</p>
-  </section>
+<!-- Replace your existing gallery section with this -->
+<section class="gallery">
+  <div class="card" data-title="Stand-up Pouch" data-description="Great for snacks and powders. Modern resealable design.">
+    <img src="IMG_0505.webp" alt="Package 1" />
+  </div>
+  <div class="card" data-title="Flat Bottom Bag" data-description="Ideal for coffee, granules, and dry foods. Strong base support.">
+    <img src="IMG_0506.jpeg" alt="Package 2" />
+  </div>
+  <div class="card" data-title="Side Gusset Pack" data-description="Used for tea, seeds, and bulk products. Elegant look with function.">
+    <img src="IMG_0507.jpeg" alt="Package 3" />
+  </div>
+</section>
 
-  <section class="gallery">
-    <div class="card"><img src="IMG_0505.webp" alt="Package 1" /></div>
-    <div class="card"><img src="IMG_0506.jpeg" alt="Package 2" /></div>
-    <div class="card"><img src="IMG_0507.jpeg" alt="Package 3" /></div>
-  </section>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- Modal -->
+<div class="modal" id="popup">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="popup-img" src="" alt="" />
+    <h2 id="popup-title"></h2>
+    <p id="popup-desc"></p>
+  </div>
+</div>
