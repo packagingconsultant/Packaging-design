@@ -1,41 +1,28 @@
-// Scroll animation
-const cards = document.querySelectorAll(".card");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.4 });
+// Toggle hamburger menu on mobile
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.getElementById("nav-links").classList.toggle("active");
+});
 
-cards.forEach(card => observer.observe(card));
+// Scroll to top button
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.onscroll = () => {
+  scrollBtn.style.display = (document.documentElement.scrollTop > 100) ? "block" : "none";
+};
+scrollBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-// Modal popup
-const modal = document.getElementById("popup");
-const modalImg = document.getElementById("popup-img");
-const modalTitle = document.getElementById("popup-title");
-const modalDesc = document.getElementById("popup-desc");
-const closeBtn = document.querySelector(".close-btn");
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    const imgSrc = card.querySelector("img").src;
-    const title = card.dataset.title;
-    const desc = card.dataset.description;
-
-    modalImg.src = imgSrc;
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
+// Optional: modal logic for image cards
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const modal = document.getElementById("popup");
+    document.getElementById("popup-img").src = card.querySelector("img").src;
+    document.getElementById("popup-title").textContent = card.dataset.title;
+    document.getElementById("popup-desc").textContent = card.dataset.description;
     modal.style.display = "flex";
   });
 });
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-window.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
+document.querySelector('.close-btn').addEventListener('click', () => {
+  document.getElementById("popup").style.display = "none";
 });
